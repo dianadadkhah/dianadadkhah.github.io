@@ -2,12 +2,4 @@
 title: "About"
 ---
 
-About this site
-
-I am a UBC MDS student focusing on data science for health. This page will collect a few projects and notes.
-
-## About me
-I am a UBC MDS student interested in data science for health. This site will showcase a few projects and notes.
-
-## About me
 Hey, I am a UBC MDS student.
