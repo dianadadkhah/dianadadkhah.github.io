@@ -1,1 +1,53 @@
-/* css styles */
+/* Clean, minimal overrides to match the style of jinxyou.github.io */
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #222;
+}
+
+h1.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Profile image circle */
+img[style*="border-radius: 50%"] {
+  border: 3px solid #e0e0e0;
+}
+
+/* Badge buttons spacing */
+p > a > img[src*="shields.io"] {
+  margin-right: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+/* Tighten up list spacing */
+ul li {
+  margin-bottom: 0.4rem;
+  line-height: 1.6;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+th {
+  background: #f5f5f5;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 2rem 0;
+}

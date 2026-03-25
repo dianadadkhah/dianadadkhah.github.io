@@ -1,11 +1,78 @@
 ---
-title: "dianadadkhah.github.io"
+title: "Diana Dadkhah"
 ---
 
-This is a Quarto website.
+![](images/profile.jpeg){width=200px style="border-radius: 50%; float: right; margin-left: 2rem; margin-bottom: 1rem;"}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Hello! I'm Diana Dadkhah, a Data Scientist completing my **Master of Data Science at the University of British Columbia** (Class of 2026).
 
-## Hello!
-I'm Diana, a UBC MDS student. This site will host my data science projects and notes.
+I specialize in machine learning, statistical inference, and data visualization — building reproducible pipelines and interactive dashboards that turn complex data into clear decisions.
 
+I'm actively looking for **full-time data science roles starting in 2026**.
+
+---
+
+## Work Experience
+
+- **[Your Company / Role Here](https://www.linkedin.com/in/diana-dadkhah-tirani/)**  &nbsp; *Month Year – Present*  
+  Job Title  
+  *(Add your work experience here)*
+
+---
+
+## Projects
+
+- **[North American Crime Dashboard](https://github.com/dianadadkhah/DSCI-532_2026_38_crime-dashboard)**  &nbsp; *Jan 2026 – Apr 2026*
+
+  - Built an interactive **Shiny for Python** dashboard visualizing North American crime trends from 1975 to 2015.
+  - Designed a geocoded **Altair choropleth map** for spatial exploration and temporal trend analysis across jurisdictions.
+  - Automated data pipelines using **Docker** and **Make** to ensure reproducibility.
+  - Tools: **Python, Shiny, Altair, Docker, Pandas** — DSCI 532
+
+- **[National Canadian Medical Datathon 2026](https://github.com/dianadadkhah/National_Canadian_Medical_Datathon_2026)**  &nbsp; *Feb 2026*
+
+  - Developed an end-to-end ML pipeline for a national medical datathon combining clinical data and digital pathology features for multimodal predictive modelling.
+  - Applied supervised learning, feature engineering, and cross-validation to optimize model performance.
+  - Tools: **Python, scikit-learn, Jupyter, Pandas, NumPy**
+
+- **[Apartment High Rent Predictor](https://github.com/dianadadkhah/Apartment-High-Rent-Predictor)**  &nbsp; *2025*
+
+  - Built a classification model predicting whether an apartment falls into a high-rent category.
+  - Covered the full supervised learning workflow: data wrangling, feature engineering, model selection, and evaluation.
+  - Tools: **Python, scikit-learn, HTML, Pandas** — DSCI 571 / DSCI 561
+
+---
+
+## Education
+
+- **[University of British Columbia](https://www.ubc.ca/)** &nbsp; *Sep 2025 – Jun 2026*  
+  Master of Data Science  
+  *24 courses covering Python, R, SQL, machine learning, deep learning, Bayesian inference, data visualization, causal inference, NLP, cloud computing, and data ethics.*
+
+- **[Your Undergraduate University]** &nbsp; *Year – Year*  
+  Bachelor of [Your Degree]  
+  *(Add your undergraduate degree here)*
+
+---
+
+## Skills
+
+**Programming & Databases**  
+Python · R · SQL · PostgreSQL · MongoDB · Bash
+
+**Machine Learning & Statistics**  
+scikit-learn · PyTorch · Regression (linear, GLMs, mixed) · Bayesian inference · Time series · Causal inference · A/B testing
+
+**Data Visualization**  
+Altair · Plotly · ggplot2 · Shiny · Tableau · Quarto · Jupyter
+
+**Tools & Workflows**  
+Docker · Git & GitHub · CI/CD (GitHub Actions) · Make · Spark · AWS · pytest
+
+---
+
+## Follow me!
+
+[![GitHub](https://img.shields.io/badge/Follow_GitHub-333?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dianadadkhah)
+[![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/diana-dadkhah-tirani/)
+[![Email](https://img.shields.io/badge/Email_Me-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:delnazdadkhahtirani@gmail.com)

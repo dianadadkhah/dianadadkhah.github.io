@@ -2,4 +2,51 @@
 title: "About"
 ---
 
-Hey, I am a UBC MDS student.
+## About Me
+
+I'm **Diana Dadkhah**, a Data Scientist completing my Master of Data Science at the **University of British Columbia** (Class of 2026).
+
+My work sits at the intersection of machine learning, statistical analysis, and data visualization. I care about making analysis reproducible, interpretable, and genuinely useful — whether that's an interactive dashboard, a well-tuned predictive model, or a clear report that drives decisions.
+
+I'm currently looking for full-time roles in data science, applied ML, or analytics starting in 2026.
+
+---
+
+## MDS Coursework at UBC
+
+Over 10 months, the MDS program covers 24 one-credit courses across six four-week blocks:
+
+| Block | Course | Topic |
+|-------|--------|-------|
+| 1 | DSCI 511 | Programming for Data Science (Python) |
+| 1 | DSCI 521 | Computing Platforms & Workflows |
+| 1 | DSCI 523 | Data Manipulation with R |
+| 1 | DSCI 551 | Descriptive Statistics & Probability |
+| 2 | DSCI 512 | Algorithms & Data Structures |
+| 2 | DSCI 531 | Data Visualization I (ggplot, Altair) |
+| 2 | DSCI 552 | Statistical Inference I |
+| 2 | DSCI 571 | Supervised Learning I (scikit-learn) |
+| 3 | DSCI 513 | Databases & Data Retrieval (SQL, MongoDB) |
+| 3 | DSCI 522 | Data Science Workflows (Quarto, Make) |
+| 3 | DSCI 561 | Regression I |
+| 3 | DSCI 573 | Feature & Model Selection |
+| 4 | DSCI 524 | Collaborative Software Dev (Docker, CI/CD) |
+| 4 | DSCI 542 | Communication & Argumentation |
+| 4 | DSCI 562 | Regression II (GLMs, survival analysis) |
+| 4 | DSCI 572 | Supervised Learning II (PyTorch, CNNs) |
+| 5 | DSCI 532 | Data Visualization II (Shiny dashboards) |
+| 5 | DSCI 553 | Statistical Inference II (Bayesian, MCMC) |
+| 5 | DSCI 563 | Unsupervised Learning & Clustering |
+| 5 | DSCI 574 | Spatial & Temporal Models (ARIMA) |
+| 6 | DSCI 525 | Web & Cloud Computing (Spark, APIs) |
+| 6 | DSCI 541 | Privacy, Ethics & Security |
+| 6 | DSCI 554 | Experimentation & Causal Inference |
+| 6 | DSCI 575 | Advanced ML (NLP, Transformers, LLMs) |
+
+---
+
+## Contact
+
+- **Email:** [delnazdadkhahtirani@gmail.com](mailto:delnazdadkhahtirani@gmail.com)
+- **LinkedIn:** [diana-dadkhah-tirani](https://www.linkedin.com/in/diana-dadkhah-tirani/)
+- **GitHub:** [github.com/dianadadkhah](https://github.com/dianadadkhah)
