@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diana Dadkhah — Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #FAFAF8;
+      --ink:     #111110;
+      --gold:    #B8822A;
+      --muted:   #89897F;
+      --border:  rgba(17,17,16,0.1);
+      --surface: #F3F2EE;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; font-weight: 300; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 5rem;
+      background: rgba(250,250,248,0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 2.75rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+
+    #home {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 5rem 5rem; border-bottom: 1px solid var(--border); position: relative;
+    }
+    .hero-index { position: absolute; top: 7rem; right: 5rem; font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; font-weight: 300; color: var(--muted); letter-spacing: 0.1em; writing-mode: vertical-rl; }
+    .hero-line { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .hero-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem, 9vw, 9rem); font-weight: 300; line-height: 0.9; letter-spacing: -0.02em; color: var(--ink); }
+    .hero-h em { font-style: italic; color: var(--gold); }
+    .hero-right { max-width: 340px; padding-bottom: 0.5rem; }
+    .hero-right p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.75rem; }
+    .hero-ctas { display: flex; gap: 1rem; align-items: center; }
+    .btn-filled { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; background: var(--ink); color: var(--bg); padding: 0.65rem 1.6rem; transition: background 0.2s; }
+    .btn-filled:hover { background: var(--gold); }
+    .btn-text { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .btn-text:hover { color: var(--gold); border-color: var(--gold); }
+    .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .hero-scroll::after { content: ''; display: block; width: 1px; height: 40px; background: var(--muted); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+    section { padding: 6rem 5rem; border-bottom: 1px solid var(--border); }
+    .section-header { display: flex; align-items: baseline; gap: 2rem; margin-bottom: 4rem; }
+    .section-num { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.1em; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.75rem); font-weight: 300; letter-spacing: -0.01em; color: var(--ink); }
+    .rule { flex: 1; height: 1px; background: var(--border); }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .about-body p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.2rem; }
+    .about-body p strong { color: var(--ink); font-weight: 500; }
+    .about-body p em { color: var(--gold); font-style: normal; }
+    .about-links { display: flex; gap: 1.5rem; margin-top: 2rem; }
+    .about-links a { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .about-links a:hover { color: var(--ink); border-color: var(--ink); }
+    .fact-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+    .fact-row:first-child { border-top: 1px solid var(--border); }
+    .fact-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
+    .fact-value { font-size: 0.9rem; color: var(--ink); text-align: right; }
+
+    #skills { background: var(--surface); }
+    .section-intro { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 600px; margin-bottom: 3rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); }
+    .skill-cell { padding: 2rem 1.75rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background 0.2s; }
+    .skill-cell:nth-child(3n) { border-right: none; }
+    .skill-cell:nth-last-child(-n+3) { border-bottom: none; }
+    .skill-cell:hover { background: var(--bg); }
+    .skill-area { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .skill-cell h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .skill-list li { font-size: 0.83rem; color: var(--muted); line-height: 1.4; }
+    .skill-list li::before { content: '—'; margin-right: 0.5rem; color: var(--border); font-size: 0.7rem; }
+
+    .blocks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .block-card { border: 1px solid var(--border); padding: 1.75rem; transition: border-color 0.2s; }
+    .block-card:hover { border-color: rgba(17,17,16,0.25); }
+    .block-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .block-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; }
+    .course-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .course-list li { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+    .course-code { color: var(--ink); font-weight: 500; margin-right: 0.4rem; }
+
+    .project-row { display: grid; grid-template-columns: 3rem 1fr auto; align-items: start; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); transition: all 0.15s; }
+    .project-row:first-child { border-top: 1px solid var(--border); }
+    .project-row:hover { background: var(--surface); margin: 0 -5rem; padding: 2.5rem 5rem; }
+    .project-num-col { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; color: var(--gold); padding-top: 0.2rem; }
+    .project-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; }
+    .project-type { display: inline-block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .project-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; max-width: 640px; }
+    .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+    .ptag { font-size: 0.72rem; padding: 0.25rem 0.65rem; border: 1px solid var(--border); color: var(--muted); }
+    .project-link { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; white-space: nowrap; transition: color 0.2s, border-color 0.2s; }
+    .project-link:hover { color: var(--ink); border-color: var(--ink); }
+
+    #resume { background: var(--surface); }
+    .resume-wrap { border: 1px solid var(--border); overflow: hidden; }
+    .resume-bar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .resume-bar span { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .resume-bar a { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+    .resume-bar a:hover { color: var(--gold); border-color: var(--gold); }
+    .resume-wrap iframe { width: 100%; height: 800px; display: block; border: none; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-body p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 2.5rem; }
+    .contact-detail { display: flex; flex-direction: column; gap: 1.5rem; }
+    .ci-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .contact-item a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: border-color 0.2s; }
+    .contact-item a:hover { border-color: var(--ink); }
+    .contact-note { border-top: 1px solid var(--border); padding-top: 3rem; }
+    .contact-note h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 300; line-height: 1.3; color: var(--ink); margin-bottom: 1.5rem; }
+    .contact-note h3 em { font-style: italic; color: var(--gold); }
+    .contact-note p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+
+    footer { padding: 2rem 5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; letter-spacing: 0.06em; color: var(--muted); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      #home { padding: 0 1.5rem 4rem; }
+      .hero-index { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .blocks-grid { grid-template-columns: 1fr; }
+      .project-row:hover { margin: 0; padding: 2.5rem 0; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home" class="nav-logo">Diana Dadkhah</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#coursework">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <div class="hero-index">Data Scientist · UBC MDS 2026 · Vancouver</div>
+    <div class="hero-line">
+      <div class="hero-h reveal">Data<br/><em>Scientist</em><br/>&amp; Analyst</div>
+      <div class="hero-right reveal">
+        <p>Master of Data Science candidate at the University of British Columbia. I build machine learning pipelines, interactive dashboards, and reproducible data workflows that turn complexity into clarity.</p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-filled">View Projects</a>
+          <a href="#resume" class="btn-text">See Resume</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-num">01</span>
+      <h2>About</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <p>I'm <strong>Diana Dadkhah</strong>, a data scientist completing my <strong>Master of Data Science at UBC</strong> (Class of 2026). My work spans the full data science lifecycle — from wrangling raw data and building statistical models to deploying interactive dashboards and communicating findings to non-technical audiences.</p>
+        <p>My background combines <em>machine learning</em>, <em>statistical inference</em>, and <em>data visualization</em>. I care about making analysis reproducible, interpretable, and genuinely useful.</p>
+        <p>I'm actively looking for full-time data science roles starting in 2026 where I can apply these skills to real-world problems.</p>
+        <div class="about-links">
+          <a href="https://www.linkedin.com/in/diana-dadkhah-tirani/" target="_blank">LinkedIn ↗</a>
+          <a href="https://github.com/dianadadkhah" target="_blank">GitHub ↗</a>
+          <a href="mailto:delnazdadkhahtirani@gmail.com">Email ↗</a>
+        </div>
+      </div>
+      <div class="about-facts reveal">
+        <div class="fact-row"><span class="fact-label">Degree</span><span class="fact-value">Master of Data Science</span></div>
+        <div class="fact-row"><span class="fact-label">Institution</span><span class="fact-value">University of British Columbia</span></div>
+        <div class="fact-row"><span class="fact-label">Graduating</span><span class="fact-value">Class of 2026</span></div>
+        <div class="fact-row"><span class="fact-label">Location</span><span class="fact-value">Vancouver, BC</span></div>
+        <div class="fact-row"><span class="fact-label">Focus</span><span class="fact-value">ML · Visualization · Inference</span></div>
+        <div class="fact-row"><span class="fact-label">Status</span><span class="fact-value">Open to opportunities</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header reveal">
+      <span class="section-num">02</span>
+      <h2>Skills</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="section-intro reveal">A full-stack data science toolkit built through the UBC MDS program and applied across coursework, competitions, and projects.</p>
+    <div class="skills-grid reveal">
+      <div class="skill-cell">
+        <div class="skill-area">Programming</div>
+        <h3>Languages &amp; Databases</h3>
+        <ul class="skill-list">
+          <li>Python (data science stack)</li>
+          <li>R (tidyverse, ggplot2)</li>
+          <li>SQL &amp; PostgreSQL</li>
+          <li>MongoDB &amp; NoSQL</li>
+          <li>Bash / Shell scripting</li>
+        </ul>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-area">Machine Learning</div>
+        <h3>Modelling &amp; Inference</h3>
+        <ul class="skill-list">
+          <li>scikit-learn (supervised &amp; unsupervised)</li>
+          <li>PyTorch &amp; deep learning</li>
+          <li>Regression (linear, GLMs, mixed)</li>
+          <li>NLP &amp; transformer architectures</li>
+          <li>Bayesian &amp; frequentist inference</li>
+        </ul>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-area">Visualization</div>
+        <h3>Dashboards &amp; Reporting</h3>
+        <ul class="skill-list">
+          <li>Altair &amp; Plotly (Python)</li>
+          <li>ggplot2 (R)</li>
+          <li>Shiny for Python (interactive apps)</li>
+          <li>Tableau</li>
+          <li>Quarto &amp; Jupyter notebooks</li>
+        </ul>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-area">Engineering</div>
+        <h3>Tools &amp; Workflows</h3>
+        <ul class="skill-list">
+          <li>Docker &amp; containerization</li>
+          <li>Git, GitHub &amp; CI/CD (Actions)</li>
+          <li>Make (reproducible pipelines)</li>
+          <li>Cloud &amp; Spark (AWS)</li>
+          <li>Unit testing (pytest, testthat)</li>
+        </ul>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-area">Statistics</div>
+        <h3>Analysis &amp; Experimentation</h3>
+        <ul class="skill-list">
+          <li>Hypothesis testing &amp; A/B testing</li>
+          <li>Causal inference &amp; observational data</li>
+          <li>Time series &amp; ARIMA models</li>
+          <li>Spatial modelling</li>
+          <li>Monte Carlo &amp; simulation</li>
+        </ul>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-area">Communication</div>
+        <h3>Soft Skills &amp; Ethics</h3>
+        <ul class="skill-list">
+          <li>Technical storytelling for stakeholders</li>
+          <li>Report writing &amp; documentation</li>
+          <li>Data ethics &amp; algorithmic fairness</li>
+          <li>Privacy &amp; responsible data use</li>
+          <li>Collaborative development</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="coursework">
+    <div class="section-header reveal">
+      <span class="section-num">03</span>
+      <h2>Education</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="section-intro reveal">UBC's MDS program covers 24 one-credit courses across six four-week blocks, followed by an eight-week capstone project. A snapshot of coursework below.</p>
+    <div class="blocks-grid">
+      <div class="block-card reveal">
+        <div class="block-label">Block 1 — Fall</div>
+        <h3>Foundations</h3>
+        <ul class="course-list">
+          <li><span class="course-code">DSCI 511</span> Programming for Data Science (Python)</li>
+          <li><span class="course-code">DSCI 521</span> Computing Platforms &amp; Workflows</li>
+          <li><span class="course-code">DSCI 523</span> Data Manipulation with R</li>
+          <li><span class="course-code">DSCI 551</span> Descriptive Statistics &amp; Probability</li>
+        </ul>
+      </div>
+      <div class="block-card reveal">
+        <div class="block-label">Block 2 — Fall</div>
+        <h3>Algorithms &amp; Visualization</h3>
+        <ul class="course-list">
+          <li><span class="course-code">DSCI 512</span> Algorithms &amp; Data Structures</li>
+          <li><span class="course-code">DSCI 531</span> Data Visualization I (ggplot, Altair)</li>
+          <li><span class="course-code">DSCI 552</span> Statistical Inference I</li>
+          <li><span class="course-code">DSCI 571</span> Supervised Learning I (scikit-learn)</li>
+        </ul>
+      </div>
+      <div class="block-card reveal">
+        <div class="block-label">Block 3 — Fall</div>
+        <h3>Databases &amp; Regression</h3>
+        <ul class="course-list">
+          <li><span class="course-code">DSCI 513</span> Databases &amp; Data Retrieval (SQL, MongoDB)</li>
+          <li><span class="course-code">DSCI 522</span> Data Science Workflows (Quarto, Make)</li>
+          <li><span class="course-code">DSCI 561</span> Regression I</li>
+          <li><span class="course-code">DSCI 573</span> Feature &amp; Model Selection</li>
+        </ul>
+      </div>
+      <div class="block-card reveal">
+        <div class="block-label">Block 4 — Winter</div>
+        <h3>Software &amp; Deep Learning</h3>
+        <ul class="course-list">
+          <li><span class="course-code">DSCI 524</span> Collaborative Software Dev (Docker, CI/CD)</li>
+          <li><span class="course-code">DSCI 542</span> Communication &amp; Argumentation</li>
+          <li><span class="course-code">DSCI 562</span> Regression II (GLMs, survival analysis)</li>
+          <li><span class="course-code">DSCI 572</span> Supervised Learning II (PyTorch, CNNs)</li>
+        </ul>
+      </div>
+      <div class="block-card reveal">
+        <div class="block-label">Block 5 — Winter</div>
+        <h3>Dashboards &amp; Bayesian Methods</h3>
+        <ul class="course-list">
+          <li><span class="course-code">DSCI 532</span> Data Visualization II (Shiny dashboards)</li>
+          <li><span class="course-code">DSCI 553</span> Statistical Inference II (Bayesian, MCMC)</li>
+          <li><span class="course-code">DSCI 563</span> Unsupervised Learning &amp; Clustering</li>
+          <li><span class="course-code">DSCI 574</span> Spatial &amp; Temporal Models (ARIMA)</li>
+        </ul>
+      </div>
+      <div class="block-card reveal">
+        <div class="block-label">Block 6 — Winter</div>
+        <h3>Cloud, Ethics &amp; Advanced ML</h3>
+        <ul class="course-list">
+          <li><span class="course-code">DSCI 525</span> Web &amp; Cloud Computing (Spark, APIs)</li>
+          <li><span class="course-code">DSCI 541</span> Privacy, Ethics &amp; Security</li>
+          <li><span class="course-code">DSCI 554</span> Experimentation &amp; Causal Inference</li>
+          <li><span class="course-code">DSCI 575</span> Advanced ML (NLP, Transformers, LLMs)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-num">04</span>
+      <h2>Projects</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="projects-list">
+      <div class="project-row reveal">
+        <div class="project-num-col">01</div>
+        <div class="project-body">
+          <div class="project-type">Dashboard · Data Visualization</div>
+          <h3>North American Crime Dashboard</h3>
+          <p>Interactive Shiny for Python dashboard visualizing North American crime trends from 1975 to 2015. Features a geocoded Altair choropleth map, temporal trend analysis across jurisdictions, and automated data pipelines. Built as part of DSCI 532.</p>
+          <div class="project-tags"><span class="ptag">Python</span><span class="ptag">Shiny</span><span class="ptag">Altair</span><span class="ptag">Docker</span><span class="ptag">DSCI 532</span></div>
+        </div>
+        <div><a href="https://github.com/dianadadkhah/DSCI-532_2026_38_crime-dashboard" target="_blank" class="project-link">View ↗</a></div>
+      </div>
+      <div class="project-row reveal">
+        <div class="project-num-col">02</div>
+        <div class="project-body">
+          <div class="project-type">Machine Learning · Healthcare</div>
+          <h3>National Canadian Medical Datathon 2026</h3>
+          <p>End-to-end ML pipeline for a national medical datathon. Combines clinical data and digital pathology features for multimodal predictive modelling, applying supervised learning from DSCI 571 and feature engineering from DSCI 573.</p>
+          <div class="project-tags"><span class="ptag">Python</span><span class="ptag">scikit-learn</span><span class="ptag">Jupyter</span><span class="ptag">Feature Engineering</span></div>
+        </div>
+        <div><a href="https://github.com/dianadadkhah/National_Canadian_Medical_Datathon_2026" target="_blank" class="project-link">View ↗</a></div>
+      </div>
+      <div class="project-row reveal">
+        <div class="project-num-col">03</div>
+        <div class="project-body">
+          <div class="project-type">Prediction · Real Estate</div>
+          <h3>Apartment High Rent Predictor</h3>
+          <p>A classification model predicting whether an apartment falls into a high-rent category. Covers data wrangling, feature engineering, model selection, and evaluation — applying the full supervised learning workflow from DSCI 571 and regression methods from DSCI 561.</p>
+          <div class="project-tags"><span class="ptag">Python</span><span class="ptag">scikit-learn</span><span class="ptag">Regression</span><span class="ptag">EDA</span></div>
+        </div>
+        <div><a href="https://github.com/dianadadkhah/Apartment-High-Rent-Predictor" target="_blank" class="project-link">View ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume">
+    <div class="section-header reveal">
+      <span class="section-num">05</span>
+      <h2>Resume</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="resume-wrap reveal">
+      <div class="resume-bar">
+        <span>Diana_Dadkhah_Resume.pdf</span>
+        <a href="resume.pdf" download>Download PDF ↓</a>
+      </div>
+      <iframe src="resume.pdf" title="Diana Dadkhah Resume"></iframe>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header reveal">
+      <span class="section-num">06</span>
+      <h2>Contact</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-body reveal">
+        <p>I'm completing my MDS at UBC and actively looking for full-time data science, machine learning, and analytics roles starting in 2026. I'd love to connect — whether it's about a role, a project, or just data.</p>
+        <div class="contact-detail">
+          <div class="contact-item">
+            <div class="ci-label">Email</div>
+            <a href="mailto:delnazdadkhahtirani@gmail.com">delnazdadkhahtirani@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="ci-label">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/diana-dadkhah-tirani/" target="_blank">diana-dadkhah-tirani</a>
+          </div>
+          <div class="contact-item">
+            <div class="ci-label">GitHub</div>
+            <a href="https://github.com/dianadadkhah" target="_blank">github.com/dianadadkhah</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-note reveal">
+        <h3>Open to<br/><em>opportunities</em><br/>in 2026.</h3>
+        <p>Especially interested in data science, applied ML, analytics engineering, or research roles — wherever data can drive meaningful decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Diana Dadkhah</span>
+    <span>Vancouver, BC · UBC MDS</span>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
