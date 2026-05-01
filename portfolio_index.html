@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diana Dadkhah Tirani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --surface: #f3f1ed;
+      --ink: #1a1814;
+      --ink-muted: #6b6660;
+      --ink-faint: #b0ada8;
+      --accent: #2d5a3d;
+      --accent-light: #e8f0eb;
+      --rule: #e2dfd9;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 3rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      max-width: 680px;
+    }
+
+    .hero-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--rule);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ink);
+      background: var(--surface);
+    }
+
+    /* ---- SECTION WRAPPER ---- */
+    .section {
+      padding: 5rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      white-space: nowrap;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    /* ---- ABOUT ---- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--ink-muted);
+      margin-bottom: 1.25rem;
+      font-size: 0.97rem;
+      line-height: 1.8;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-aside {}
+
+    .stat-list {
+      list-style: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .stat-value {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-align: right;
+      max-width: 55%;
+    }
+
+    /* ---- PROJECTS ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .project-card {
+      background: var(--bg);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-card:hover {
+      background: var(--accent-light);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.2rem 0.55rem;
+      border-radius: 1px;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .project-meta {
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-award {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #8a6a1a;
+      background: #fdf3d8;
+      padding: 0.18rem 0.55rem;
+      border-radius: 1px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- PUBLICATIONS ---- */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 2rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+
+    .pub-item:first-child {
+      border-top: 1px solid var(--rule);
+    }
+
+    .pub-year {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--ink-faint);
+      padding-top: 0.1rem;
+    }
+
+    .pub-content {}
+
+    .pub-title {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .pub-authors strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .pub-journal {
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .pub-status {
+      font-style: normal;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.15rem 0.5rem;
+      border-radius: 1px;
+    }
+
+    /* ---- EXPERIENCE ---- */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 11rem 1fr;
+      gap: 2.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .exp-item:first-child { border-top: 1px solid var(--rule); }
+
+    .exp-period {
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+      padding-top: 0.2rem;
+    }
+
+    .exp-role {
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-org {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 400;
+    }
+
+    .exp-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+    }
+
+    /* ---- CONTACT ---- */
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-text h3 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .contact-text p {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      list-style: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    .contact-link-item {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .contact-link-item a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 0;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.88rem;
+      transition: all 0.2s;
+    }
+
+    .contact-link-item a:hover {
+      color: var(--accent);
+      padding-left: 0.5rem;
+    }
+
+    .contact-link-item a span:last-child {
+      color: var(--ink-faint);
+      font-size: 0.8rem;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+    }
+
+    /* ---- FADE IN ---- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .hero, .section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .pub-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-name">Diana Dadkhah Tirani</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner fade-in">
+      <div class="hero-label">Data Scientist — Vancouver, BC</div>
+      <h1>Turning complex data<br>into <em>clinical insight</em></h1>
+      <p class="hero-bio">
+        MDS candidate at UBC with a background in clinical research, biostatistics, and machine learning. I build models, pipelines, and tools that work in the real world — from paediatric outcomes research to deployed AI-powered dashboards.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://www.linkedin.com/in/diana-dadkhah-tirani/" target="_blank" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/dianadadkhah" target="_blank" class="btn btn-outline">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-header fade-in">
+      <span class="section-label">01</span>
+      <h2 class="section-title">About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>
+          I am a Master of Data Science student at the University of British Columbia, graduating in June 2026. My background bridges clinical research and computational methods — I have spent the last three years working at BC Children's Hospital, contributing to studies on paediatric sepsis outcomes in Uganda, neonatal mortality prediction, and psychosocial screening tools.
+        </p>
+        <p>
+          My technical work spans the full data pipeline: from wrangling and statistical modelling to building deployed, production-grade tools. I am particularly interested in applying machine learning and biostatistics in health contexts where the stakes are real.
+        </p>
+        <p>
+          I hold a BSc in Biology from UBC (Graduated with Distinction) and have published or submitted four manuscripts as first, second, or co-author.
+        </p>
+      </div>
+      <div class="about-aside fade-in">
+        <ul class="stat-list">
+          <li class="stat-item">
+            <span class="stat-label">Education</span>
+            <span class="stat-value">MDS, UBC Vancouver 2026</span>
+          </li>
+          <li class="stat-item">
+            <span class="stat-label">Background</span>
+            <span class="stat-value">Biology BSc, Distinction</span>
+          </li>
+          <li class="stat-item">
+            <span class="stat-label">Research</span>
+            <span class="stat-value">4 manuscripts (2 first-author)</span>
+          </li>
+          <li class="stat-item">
+            <span class="stat-label">Domain</span>
+            <span class="stat-value">Global Health, Clinical ML</span>
+          </li>
+          <li class="stat-item">
+            <span class="stat-label">Location</span>
+            <span class="stat-value">Vancouver, BC</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-header fade-in">
+      <span class="section-label">02</span>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="projects-grid">
+
+      <a class="project-card fade-in" href="https://github.com/dianadadkhah" target="_blank">
+        <div class="project-tags">
+          <span class="tag">RAG</span>
+          <span class="tag">LLM</span>
+          <span class="tag">Python</span>
+        </div>
+        <div class="project-title">RAG Music Review Assistant</div>
+        <div class="project-desc">
+          Retrieval-augmented generation pipeline over Amazon Reviews 2023. Combines BM25 and semantic search into a hybrid retriever, with Groq LLM generating grounded answers with source citations.
+        </div>
+        <div class="project-meta">UBC MDS DSCI 575 &middot; 2026</div>
+      </a>
+
+      <a class="project-card fade-in" href="https://github.com/dianadadkhah" target="_blank">
+        <div class="project-tags">
+          <span class="tag">Dashboard</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">Deployed</span>
+        </div>
+        <div class="project-title">Crime Dashboard</div>
+        <div class="project-desc">
+          Interactive dashboard visualizing North American crime trends (1975–2015). Deployed to Posit Connect Cloud. Includes an AI Explorer tab powered by the Anthropic Claude API for natural language querying of the dataset.
+        </div>
+        <div class="project-meta">UBC MDS DSCI 532 &middot; 2026</div>
+      </a>
+
+      <a class="project-card fade-in" href="https://github.com/UBC-MDS/DSCI_524_group27_biomathhh" target="_blank">
+        <div class="project-tags">
+          <span class="tag">Python Package</span>
+          <span class="tag">PyPI</span>
+          <span class="tag">CI/CD</span>
+        </div>
+        <div class="project-title">biomathhh</div>
+        <div class="project-desc">
+          Open-source Python package published to PyPI. Provides mathematical tools for biological research: growth models, dilution calculations, pH conversion, and biodiversity metrics. Automated publishing via GitHub Actions.
+        </div>
+        <div class="project-meta">UBC MDS DSCI 524 &middot; 2026</div>
+      </a>
+
+      <a class="project-card fade-in" href="https://github.com/dianadadkhah" target="_blank">
+        <div class="project-tags">
+          <span class="tag">ML Pipeline</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Reproducible</span>
+        </div>
+        <div class="project-title">Apartment High-Rent Predictor</div>
+        <div class="project-desc">
+          End-to-end reproducible ML pipeline predicting whether U.S. apartments are high-rent relative to state median. Logistic regression, ~70% accuracy. Built with Make, Docker, pytest, and Quarto for automated reporting.
+        </div>
+        <div class="project-meta">UBC MDS DSCI 522 &middot; 2025</div>
+      </a>
+
+      <a class="project-card fade-in" href="https://github.com/dianadadkhah" target="_blank">
+        <div class="project-tags">
+          <span class="tag">Clinical ML</span>
+          <span class="tag">Multimodal</span>
+          <span class="tag">Deep Learning</span>
+        </div>
+        <div class="project-title">Breast Cancer pCR Prediction</div>
+        <div class="project-desc">
+          Multimodal ML pipeline combining clinical features and whole-slide histology images to predict pathological complete response to neoadjuvant chemotherapy. Attention-based MIL with early fusion. 78% accuracy, 92% pCR precision.
+        </div>
+        <div class="project-meta">
+          National Canadian Medical Datathon &middot; 2026
+          <span class="project-award">3rd Place</span>
+        </div>
+      </a>
+
+      <a class="project-card fade-in" href="https://github.com/dianadadkhah" target="_blank">
+        <div class="project-tags">
+          <span class="tag">Logistic Regression</span>
+          <span class="tag">Random Forest</span>
+          <span class="tag">Dashboard</span>
+        </div>
+        <div class="project-title">SDOH Emergency Care Risk Model</div>
+        <div class="project-desc">
+          Analyzed 370,000+ patient records to quantify how social determinants of health drive preventable ER visits. Transportation barriers increased ER odds 2.2x. Built an interactive real-time risk-scoring dashboard for clinical triage.
+        </div>
+        <div class="project-meta">
+          ASA DataFest &middot; 2026
+          <span class="project-award">2nd Place</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- PUBLICATIONS -->
+  <section class="section" id="publications">
+    <div class="section-header fade-in">
+      <span class="section-label">03</span>
+      <h2 class="section-title">Research</h2>
+    </div>
+    <div class="pub-list">
+
+      <div class="pub-item fade-in">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">Identifying Candidate Predictor Variables for Post-Discharge Mortality Among Neonates in East Africa: A Modified Delphi Study</div>
+          <div class="pub-authors"><strong>Dadkhah Tirani D</strong>, Ahmaz H, Bedi J, Wiens MO</div>
+          <div class="pub-journal">Manuscript in preparation <span class="pub-status">First Author</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">Unplanned Discharges and Their Impact on Post-Discharge Mortality in Ugandan Children: A Multisite Cohort Study</div>
+          <div class="pub-authors"><strong>Dadkhah Tirani D</strong>, Zhang C, Bose R, et al.</div>
+          <div class="pub-journal">Archives of Disease in Childhood (BMJ) <span class="pub-status">First Author · Submitted</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">Determining Potential Predictors of Post-Discharge Mortality Among Children Over 5 Years of Age: A Modified Delphi Study</div>
+          <div class="pub-authors">Zandi Nia S, Trawin J, <strong>Dadkhah Tirani D</strong>, et al.</div>
+          <div class="pub-journal">African Health Sciences <span class="pub-status">Submitted</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">Utility of HEARTSMAP-U for Psychosocial Screening and Mental Health Resource Navigation in the Young Adult Population</div>
+          <div class="pub-authors">Murphy S, <strong>Dadkhah Tirani D</strong>, Wagg J, Stillwell K, Lee L, Doan Q</div>
+          <div class="pub-journal">Manuscript submitted <span class="pub-status">Second Author</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-header fade-in">
+      <span class="section-label">04</span>
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-item fade-in">
+        <div class="exp-period">Aug 2025 — Jun 2026</div>
+        <div>
+          <div class="exp-role">Master of Data Science</div>
+          <div class="exp-org">University of British Columbia</div>
+          <div class="exp-desc">24-course intensive program covering supervised and unsupervised learning, deep learning, databases, statistical inference, data visualization, collaborative software development, and NLP. Capstone project in progress.</div>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-period">Sep 2025 — Apr 2026</div>
+        <div>
+          <div class="exp-role">Research Assistant (Work Learn)</div>
+          <div class="exp-org">BC Children's Hospital, Institute for Global Health</div>
+          <div class="exp-desc">Led coordination of two concurrent modified Delphi studies on paediatric post-discharge mortality (35 international experts each). First author on neonatal manuscript. Managed expert panels via REDCap.</div>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-period">Summer 2025</div>
+        <div>
+          <div class="exp-role">Research Award Recipient — Uganda Paediatric Outcomes Study</div>
+          <div class="exp-org">BC Children's Hospital</div>
+          <div class="exp-desc">Secondary analysis of 6,189 children across six Ugandan hospitals. Applied Cox proportional hazards regression; unplanned discharge associated with 2.6x higher mortality risk. First-author manuscript submitted to Archives of Disease in Childhood (BMJ).</div>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-period">Sep 2023 — Apr 2024</div>
+        <div>
+          <div class="exp-role">Research Assistant Co-op</div>
+          <div class="exp-org">BC Children's Hospital, Paediatric Emergency Department</div>
+          <div class="exp-desc">Contributed to HEARTSMAP-U prospective cohort study (n=536). Performed sensitivity and specificity analyses across 10 psychosocial domains. Prepared REB applications, protocols, and consent documentation. Second author on submitted manuscript.</div>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-period">Apr 2022 — Apr 2025</div>
+        <div>
+          <div class="exp-role">Ophthalmic Technician & Medical Office Assistant</div>
+          <div class="exp-org">Oculus Eye</div>
+          <div class="exp-desc">Delivered direct patient care including OCT and Optos imaging, tonometry, and visual field assessments. Managed clinical workflow and patient records in Accuro EMR.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-header fade-in">
+      <span class="section-label">05</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="contact-inner">
+      <div class="contact-text fade-in">
+        <h3>Open to opportunities in data science and research.</h3>
+        <p>I am graduating in June 2026 and actively looking for full-time roles in data science, biostatistics, or clinical ML — particularly in health, life sciences, or research-adjacent environments.</p>
+        <a href="mailto:delnazdadkhahtirani@gmail.com" class="btn btn-primary">Send an Email</a>
+      </div>
+      <div class="fade-in">
+        <ul class="contact-links">
+          <li class="contact-link-item">
+            <a href="mailto:delnazdadkhahtirani@gmail.com">
+              <span>Email</span>
+              <span>delnazdadkhahtirani@gmail.com</span>
+            </a>
+          </li>
+          <li class="contact-link-item">
+            <a href="https://www.linkedin.com/in/diana-dadkhah-tirani/" target="_blank">
+              <span>LinkedIn</span>
+              <span>diana-dadkhah-tirani</span>
+            </a>
+          </li>
+          <li class="contact-link-item">
+            <a href="https://github.com/dianadadkhah" target="_blank">
+              <span>GitHub</span>
+              <span>dianadadkhah</span>
+            </a>
+          </li>
+          <li class="contact-link-item">
+            <a href="https://dianadadkhah.github.io" target="_blank">
+              <span>Portfolio</span>
+              <span>dianadadkhah.github.io</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Diana Dadkhah Tirani &mdash; Vancouver, BC</p>
+    <p>Updated April 2026</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
